@@ -7,8 +7,8 @@ public class Player : MonoBehaviour {
 	//Variables
 
 	public float movementSpeed;
-
-	
+	public GameObject playerMovePoint;
+	private Transform pmr;
 
 
 	//Functions
@@ -23,10 +23,9 @@ public class Player : MonoBehaviour {
 		if(playerPlane.Raycast(ray,out hitDistance))
         {
 			Vector3 targetPoint = ray.GetPoint(hitDistance);
-            //Quaternion targetRotation = Quaternion.LookRotation(targetPoint = transform.position);
             if (Input.GetMouseButton(0))
             {
-				print(targetPoint);
+				pmr = Instantiate(playerMovePoint.transform, targetPoint, Quaternion.identity);
             }
         
 		}
